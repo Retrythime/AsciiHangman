@@ -58,8 +58,9 @@ Enjoy!""")
         welcome_script()
     elif user_in == "add_words":
         new_word = input("New Word: ")
+        data[lang].append(str(new_word))
         with open("resources/words.json", "w") as f:
-            data[lang].append(str(new_word))
+            json.dump(data, f)
     else:
         clear_terminal()
         welcome_script()
