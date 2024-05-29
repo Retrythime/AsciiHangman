@@ -32,7 +32,7 @@ def welcome_script():  # The welcome script that starts the game.
     print("""Hey, Welcome to my Hangman Game !
 Cool to hear that you found it, wanna start?
 If you see any problems, feel free to open a new issue on GitHub or type "info" for more""")
-    user_in = input("(y/n/info)")
+    user_in = input("(y/n/info/add_words)")
     if user_in == "y" or user_in == "Y":
         clear_terminal()
         start_game()
@@ -56,6 +56,10 @@ Enjoy!""")
         print(line_four)
         print("These are my first ASCII Arts for this game :^)")
         welcome_script()
+    elif user_in == "add_words":
+        new_word = input("New Word: ")
+        with open("resources/words.json", "w") as f:
+            data[lang].append(str(new_word))
     else:
         clear_terminal()
         welcome_script()
